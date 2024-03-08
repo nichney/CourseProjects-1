@@ -26,14 +26,26 @@ class Student {
     private:
         const char* name;
         Date birth;
-        Date enroll; // date of enroll to college
+        int enroll; // year of enroll to college
         Institute inst; // факультет (институт)
         const char* department; // кафедра
         const char* group;
         const char* ID; // Номер зачётной книжки
         bool sex; // Пол, 0 - женский, 1 - мужской
-        Marks marks; // Оценки за весь период обучения
+        Marks *marks; // Оценки за весь период обучения
+    public:
+        Student(const char*, Date, int, Institute, const char*, const char*, const char*, bool, Marks);
+        ~Student();
 
+        void changeName(const char*);
+        void changeBirth(int, int, int);
+        void changeEnroll(int);
+        void changeInstitute(Institute inst);
+        void changeDepartment(const char*);
+        void changeGroup(const char*);
+        void changeID(const char*);
+        void changeSex();
+        void changeMarks(); // TODO: edit marks in marks.h
 };
 
 #endif
