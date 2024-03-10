@@ -38,16 +38,16 @@ class Student {
         Marks *marks; // Оценки за весь период обучения
     public:
         Student(const char*, Date&, int, Institute, const char*, const char*, const char*, bool, Marks&);
-       // ~Student();
+        ~Student();
 
-        void changeName(const char*);
-       // void changeBirth(int, int, int);
-       // void changeEnroll(int);
-       // void changeInstitute(Institute inst);
-       // void changeDepartment(const char*);
-        //void changeGroup(const char*);
-       // void changeID(const char*);
-       // void changeSex();
+        void changeName(const char*); // +
+        void changeBirth(int, int, int); // +
+        void changeEnroll(int); // +
+        void changeInstitute(Institute inst); // +
+        void changeDepartment(const char*);
+        void changeGroup(const char*);
+        void changeID(const char*);
+        void changeSex();
        // void changeMarks(); // TODO: edit marks in marks.h
 };
 
