@@ -36,6 +36,8 @@ class Sessions{
                                         //               -2: no such subject
         int editDisciplineName(const char*, const char*); // return codes: no such subject
         int getAmountOfSubjects();
+
+        std::string getSubjName(int);
 };
 
 
@@ -57,6 +59,8 @@ class Marks {
 
         int getAmountOfSessions();
         int getAmountOfSubjects(int);
+
+        std::string get2table(int, int);
 
 };
 

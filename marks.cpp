@@ -301,10 +301,12 @@ int Marks::getAmountOfSubjects(int ses){
     return s[ses].getAmountOfSubjects();
 }
 
+std::string Sessions::getSubjName(int subj){
+    return std::string(d[subj].Name());
+}
 
-
-
-
-
+std::string Marks::get2table(int ses, int subj){
+    return std::string(s[ses].getSubjName(subj));
+}
 
 
