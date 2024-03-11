@@ -49,6 +49,8 @@ class Student {
         void changeID(const char*);
         void changeSex();
        // void changeMarks(); // TODO: edit marks in marks.h
+        void output();
+        const char* Sex();
 };
 
 #endif
