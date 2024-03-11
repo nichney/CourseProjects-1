@@ -4,23 +4,19 @@
 #include <cstring>
 #include <iostream>
 
-
 class Disciplines {
     private:
         const char* name; 
-        const char* mark;
     public:
         Disciplines();
-        Disciplines(const char*, const char*);
+        Disciplines(const char*);
         ~Disciplines();
 
         Disciplines& operator=(const Disciplines&);
 
         void changeName(const char*);
-        void changeMark(const char*);
         
         const char* Name();
-        const char* Mark();
 };
 
 
@@ -31,9 +27,15 @@ class Sessions{
     public:
         Sessions();
         ~Sessions();
-        
-        int addSubject(const char*, const char*);
-        int removeSubject(const char*);
+       
+        Sessions& operator=(const Sessions&);
+
+        int addSubject(const char*); // return codes: -1: too many subjects
+                                     //               -2: subject already used
+        int removeSubject(const char*); // return codes: -1: too small session
+                                        //               -2: no such subject
+        int editDisciplineName(const char*, const char*); // return codes: no such subject
+        int getAmountOfSubjects();
 };
 
 
@@ -44,6 +46,18 @@ class Marks {
     public:
         Marks();
         ~Marks();
+
+        Marks& operator=(const Marks&);
+
+        void addSubject2Session();
+        void addSession();
+        void removeSubjectFromSession();
+        void removeSession();
+        void editDisciplineName();
+
+        int getAmountOfSessions();
+        int getAmountOfSubjects(int);
+
 };
 
 #endif

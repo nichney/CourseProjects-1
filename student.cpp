@@ -14,7 +14,7 @@ std::ostream& operator<<(std::ostream& stream, Institute i){
       return stream;
 }
 
-Student::Student(const char* n, Date& b, int e, Institute i, const char* dep, const char* grp, const char* id, bool s, Marks& m){
+Student::Student(const char* n, Date& b, int e, Institute i, const char* dep, const char* grp, const char* id, bool s, std::vector<std::string> m){
     name = nullptr;
     department = nullptr;
     group = nullptr;
@@ -28,7 +28,7 @@ Student::Student(const char* n, Date& b, int e, Institute i, const char* dep, co
     group = strdup(grp);
     ID = strdup(id);
     sex = s;
-    marks = &m;
+    marks = m;
 }
 
 Student::~Student(){
@@ -46,9 +46,6 @@ Student::~Student(){
     }
     if(ID != nullptr){
         delete[] ID;
-    }
-    if(marks != nullptr){
-        delete marks;
     }
 
 }

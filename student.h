@@ -2,7 +2,7 @@
 #define STUDENT_H
 
 #include <cstring>
-#include "marks.h"
+#include <vector>
 
 #include <iostream> // FOR DEBUG!!!
 
@@ -35,9 +35,9 @@ class Student {
         const char* group;
         const char* ID; // Номер зачётной книжки
         bool sex; // Пол, 0 - женский, 1 - мужской
-        Marks *marks; // Оценки за весь период обучения
+        std::vector<std::string> marks; // Оценки за весь период обучения (массив строк)
     public:
-        Student(const char*, Date&, int, Institute, const char*, const char*, const char*, bool, Marks&);
+        Student(const char*, Date&, int, Institute, const char*, const char*, const char*, bool, std::vector<std::string>);
         ~Student();
 
         void changeName(const char*); // +
