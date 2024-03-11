@@ -35,9 +35,9 @@ class Student {
         const char* group;
         const char* ID; // Номер зачётной книжки
         bool sex; // Пол, 0 - женский, 1 - мужской
-        std::vector<std::string> marks; // Оценки за весь период обучения (массив строк)
+        std::vector<std::vector<std::string>> marks; // Оценки за весь период обучения (массив строк)
     public:
-        Student(const char*, Date&, int, Institute, const char*, const char*, const char*, bool, std::vector<std::string>);
+        Student(const char*, Date&, int, Institute, const char*, const char*, const char*, bool, std::vector<std::vector<std::string>>);
         ~Student();
 
         void changeName(const char*); // +
@@ -48,9 +48,21 @@ class Student {
         void changeGroup(const char*);
         void changeID(const char*);
         void changeSex();
-       // void changeMarks(); // TODO: edit marks in marks.h
-        void output();
+
+        // getters
+        const char* Name();
+        std::string Birth();
+        std::string Enroll();
+        const char* Institut();
+        const char* Department();
+        const char* Group();
+        const char* Identification();
         const char* Sex();
+        std::string Mark(int, int);
+
 };
+
+
+
 
 #endif

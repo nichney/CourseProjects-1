@@ -14,7 +14,7 @@ std::ostream& operator<<(std::ostream& stream, Institute i){
       return stream;
 }
 
-Student::Student(const char* n, Date& b, int e, Institute i, const char* dep, const char* grp, const char* id, bool s, std::vector<std::string> m){
+Student::Student(const char* n, Date& b, int e, Institute i, const char* dep, const char* grp, const char* id, bool s, std::vector<std::vector<std::string>> m){
     name = nullptr;
     department = nullptr;
     group = nullptr;
@@ -84,13 +84,58 @@ void Student::changeSex(){
     sex = !sex;
 }
 
-void Student::output(){
-    std::cout << name << " | " << birth->day << "." << birth->month << "." << birth->year << " | " << enroll << " | "  << inst << " | " << department << " | " << group << " | " << ID << " | " << Sex() << "\n";
-
-}
-
 const char* Student::Sex(){
     if(sex) return "Муж.";
     else return "Жен.";
 }
+
+const char* Student::Name(){
+    return name;
+}
+
+std::string Student::Birth(){
+    std::string result = "";
+    if(birth->day < 10) result += "0";
+    result = result + std::to_string(birth->day) + ".";
+    if(birth->month < 10) result += "0";
+    result = result + std::to_string(birth->month) + "." + std::to_string(birth->year);
+    return result;
+}
+
+std::string Student::Enroll(){
+    std::string result = "";
+    result = std::to_string(enroll) + "г.";
+    return result;
+}
+
+const char* Student::Institut(){
+     switch(inst){
+          case IIT: return "Институт информационных технологий";
+          case IAI: return "Институт искусственного интеллекта"; 
+          case ICS: return "Институт кибербезопасности и цифровых технологий"; 
+          case Industrial: return "Институт персппективных технологий и индустриального программирования";
+          case RadEl: return "Институт радиоэлектроники и информатики";
+          case IMT: return "Институт технологий управления"; 
+          case Chem: return "Институт тонких химических технологий им. М.В. Ломоносова"; 
+          default: return "Unknown Institute Error";
+    }
+}
+
+const char* Student::Department(){
+    return department;
+}
+
+const char* Student::Group(){
+    return group;
+}
+
+const char* Student::Identification(){
+    return ID;
+}
+
+std::string Student::Mark(int sessionNumber, int subjNumber){
+    return marks[sessionNumber][subjNumber];
+}
+
+
 
